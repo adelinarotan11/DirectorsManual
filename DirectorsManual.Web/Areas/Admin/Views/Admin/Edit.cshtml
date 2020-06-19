@@ -1,0 +1,86 @@
+﻿@model DirectorsManual.Domain.Entities.TProduct
+
+@{
+    ViewBag.Title = "Админ панель: редактирование товара";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel">
+	<div class="panel-heading">
+		<h3>@ViewBag.message @Model.Name_Product</h3>
+	</div>
+
+	@using (Html.BeginForm("Edit", "Admin",
+		FormMethod.Post, new { enctype = "multipart/form-data" }))
+	{
+	<div class="panel-body">
+		@Html.HiddenFor(m => m.ID)
+		@Html.ValidationSummary()
+		<div class="form-group">
+
+			Name of product
+			@Html.EditorFor(b => b.Name_Product, new { @class = "form-control" })
+			<br />
+			Category of product
+			@Html.EditorFor(b => b.Category, new { @class = "form-control" })
+			<br />
+			Description
+			@Html.EditorFor(b => b.Description, new { @class = "form-control" })
+			<br />
+			Price
+			@Html.EditorFor(b => b.Price, new { @class = "form-control" })
+			<br />
+			CompanyID
+			@Html.EditorFor(b => b.CompanyID, new { @class = "form-control" })
+			<br />
+			CustomerID
+			@Html.EditorFor(b => b.CustomerID, new { @class = "form-control" })
+			<br />
+			Contract_ProductID
+			@Html.EditorFor(b => b.Contract_ProductID, new { @class = "form-control" })
+
+
+			<div class="form-group">
+				<div style="position:relative;">
+					<label>Картинка</label>
+					<a class='btn' href='javascript:;'>
+						Выберите файл...
+						<input type="file" name="Image" size="40"
+							   style="position:absolute;z-index:2;top:0;
+                                left:0;filter: alpha(opacity=0); opacity:0;
+                                background-color:transparent;color:transparent;"
+							   onchange='$("#upload-file-info").html($(this).val());'>
+					</a>
+					<span class='label label-info' id="upload-file-info"></span>
+				</div>
+				@if (Model.ImageData == null)
+				{
+					<div class="form-control-static">Нет картинки</div>
+				}
+				else
+				{
+					<img class="img-thumbnail" width="150" height="150"
+						 src="@Url.Action("GetImage", "Product",
+	   new { Model.ID })" />
+				}
+			</div>
+		</div>
+		<div class="panel-footer">
+			<input type="submit" value="Сохранить" class="btn btn-primary" />
+			@Html.ActionLink("Отменить изменения и вернуться к списку", "Index", null, new
+	   {
+		   @class = "btn btn-default"
+	   })
+		</div>
+
+	</div>
+	}
+</div>
+@*<h2>Редактирование товaра «@Model.Name_Product»</h2>
+
+	@using (Html.BeginForm())
+	{
+		@Html.EditorForModel()
+		<input type="submit" value="Сохранить" />
+		@Html.ActionLink("Отменить изменения и вернуться к списку", "Index")
+	}*@

@@ -1,0 +1,49 @@
+﻿@model DirectorsManual.Web.Areas.Admin.Models.Procedure1_AddCP
+
+@{
+    ViewBag.Title = "FirstStorageProcedure";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@* представление с полями таблицы Tcontr_prod для ввода новых добавляемых данных *@
+<style>
+    .panel-footer {
+        background: rgba(0, 0, 0, 0);
+    }
+  
+</style>
+<h2>Добавить договор на поставку готовых товаров</h2>
+@using (Html.BeginForm("FirstStorageProcedure", "Admin",
+        FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <div class="form-group">
+        @*Название компании
+            @Html.EditorFor(modelItem => modelItem.CompanyName)
+            ФИО покупателя
+            @Html.EditorFor(modelItem => modelItem.CustomerName)*@
+        <b>Название компании</b>
+        @Html.DropDownListFor(v => v.CompanyName, new SelectList(Model.TypeOfCompanies))
+        <b>ФИО поставщика</b>
+        @Html.DropDownListFor(v => v.CustomerName, new SelectList(Model.TypeOfCustomers))
+        Кол - во товаров
+        @Html.EditorFor(modelItem => modelItem.Kolvo_Products)
+        Цена товара
+        @Html.EditorFor(modelItem => modelItem.Price_Product)
+        Дата доставки
+        @Html.EditorFor(modelItem => modelItem.Date_delivery_product, 
+    new { htmlAttributes = new { @class = "form-control datepicker", 
+    @Value =DateTime.Now } })
+    </div>
+    <div class="panel-footer">
+        <input type="submit" value="Сохранить" class="btn btn-primary" />
+        @Html.ActionLink("Отменить изменения и вернуться к списку", "Rez1StopP", null, new
+    {
+        @class = "btn btn-default"
+    })
+    </div>
+}
+<script>
+$( ".selector" ).datepicker( {
+  minDate: 0
+});
+ </script>

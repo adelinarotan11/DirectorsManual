@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Func2";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div>
+    @using (Ajax.BeginForm("Func2Partial", new AjaxOptions { UpdateTargetId = "results" }))
+    {<div class="panel">
+            <div class="panel-heading">
+                <h3>
+                    Определить, каких деталей не хватает на складе для того,
+                    чтобы приступить к сборке изделий для заданного договора на поставку товаров:
+                </h3>
+            </div>
+            <div class="panel-body">
+                <label>ID договора на поставку деталей:</label>
+                <input type="number" name="ID" />
+            </div>
+            <div class="panel-footer">
+                <input type="submit" value="Найти" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+    <table id="results" class="table table-sm table-dark"></table>
+
+</div>

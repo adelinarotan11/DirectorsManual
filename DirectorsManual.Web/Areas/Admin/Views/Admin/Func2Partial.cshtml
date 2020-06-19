@@ -1,0 +1,44 @@
+﻿@model IEnumerable<DirectorsManual.Web.Areas.Admin.Models.FunctionsModel2>
+@if (TempData["message"] == null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                Название детали
+            </th>
+            <th>
+                Колличество необходимых деталей
+            </th>
+            <th>
+                Колличество деталей на складе
+            </th>
+            <th>Необходимо заказать</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameofDetail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kolDetailInCont)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kolDetailInStock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NecessaryOrderDet)
+                </td>
+
+            </tr>
+        }
+
+    </table>}
+else
+{
+    <div class="alert alert-danger">@TempData["message"]</div>
+}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/bootstrap")

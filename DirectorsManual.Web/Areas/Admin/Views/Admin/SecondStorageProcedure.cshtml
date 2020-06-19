@@ -1,0 +1,42 @@
+﻿@model DirectorsManual.Web.Areas.Admin.Models.Procedure2_AddCD
+
+@{
+    /**/
+
+    ViewBag.Title = "SecondStorageProcedure";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@* представление с полями таблицы Tcontr_prod для ввода новых добавляемых данных *@
+<style>
+    .panel-footer {
+        background: rgba(0, 0, 0, 0);
+    }
+</style>
+<h2>Добавить договор поставки комплектующих деталей</h2>
+@using (Html.BeginForm("SecondStorageProcedure", "Admin",
+		FormMethod.Post))
+{
+	@Html.ValidationSummary()
+<div class="form-group">
+	@*Название компании
+		@Html.EditorFor(modelItem => modelItem.Name_company)
+		ФИО поставщика
+		@Html.EditorFor(modelItem => modelItem.Name_provider)*@
+	<b>Название компании</b>
+	@Html.DropDownListFor(v => v.Name_company, new SelectList(Model.TypeOfCompanies))
+	<b>ФИО поставщика</b>
+	@Html.DropDownListFor(v => v.Name_provider, new SelectList(Model.TypeOfProviders))
+	<b>Кол - во деталей</b>
+	@Html.EditorFor(modelItem => modelItem.KolDetails)
+	<b>Цена детали</b>
+	@Html.EditorFor(modelItem => modelItem.PriceDetails)
+	<b>Дата доставки</b>
+	@Html.EditorFor(modelItem => modelItem.DateDeliveryDetails)
+</div>
+	<div class="panel-footer">
+		<input type="submit" value="Сохранить" class="btn btn-primary" />
+		@Html.ActionLink("Отменить изменения и вернуться к списку", "Rez2StopP", null, new
+	{
+		@class = "btn btn-default"
+	})
+	</div>}

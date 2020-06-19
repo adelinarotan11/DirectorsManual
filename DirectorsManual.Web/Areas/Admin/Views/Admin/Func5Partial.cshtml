@@ -1,0 +1,31 @@
+﻿@model IEnumerable<DirectorsManual.Web.Areas.Admin.Models.FunctionsModel5>
+
+@if (TempData["message"] == null)
+{
+    <table class="table">
+        <tr>
+
+            <th>
+                Имя поставщика
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameofProv)
+                </td>
+
+            </tr>
+        }
+
+    </table>}
+else
+{
+    <div class="alert alert-danger">@TempData["message"]</div>
+}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/bootstrap")

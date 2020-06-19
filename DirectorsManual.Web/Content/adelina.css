@@ -1,0 +1,146 @@
+﻿
+
+:target:before {
+	display: block;
+	content: " ";
+	margin-top: -70px;
+	height: 70px;
+	visibility: hidden;
+}
+/*НАСТРОЙКА КРАСНОГО НАВБАР*/
+
+.navbar-default {
+    background-color: #e74c3c;
+    border-color: #c0392b;
+}
+    .navbar-default .navbar-brand {
+        color: #ecf0f1;
+    }
+       .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            color: #ffbbbc;
+        }
+   .navbar-default .navbar-nav > li > a {
+        color: #ecf0f1;
+    }
+      .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #ffbbbc;
+        }
+    .navbar-default .navbar-nav > .active > a,
+    .navbar-default .navbar-nav > .active > a:hover,
+    .navbar-default .navbar-nav > .active > a:focus {
+        color: #ffbbbc;
+        background-color: #c0392b;
+    }
+   .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        color: #ffbbbc;
+        background-color: #c0392b;
+    }
+    .navbar-default .navbar-nav > .dropdown > a .caret {
+        border-top-color: #ecf0f1;
+        border-bottom-color: #ecf0f1;
+    }
+    .navbar-default .navbar-nav > .dropdown > a:hover .caret,
+    .navbar-default .navbar-nav > .dropdown > a:focus .caret {
+        border-top-color: #ffbbbc;
+        border-bottom-color: #ffbbbc;
+    }
+    .navbar-default .navbar-nav > .open > a .caret,
+    .navbar-default .navbar-nav > .open > a:hover .caret,
+    .navbar-default .navbar-nav > .open > a:focus .caret {
+        border-top-color: #ffbbbc;
+        border-bottom-color: #ffbbbc;
+    }
+   .navbar-default .navbar-toggle {
+        border-color: #c0392b;
+    }
+       .navbar-default .navbar-toggle:hover,
+        .navbar-default .navbar-toggle:focus {
+            background-color: #c0392b;
+        }
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #ecf0f1;
+        }
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ecf0f1;
+    }
+         .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+            color: #ffbbbc;
+            background-color: #c0392b;
+        }
+}
+
+
+/* Отступ сверху для содержимого body (высота navbar = 50px)*/
+body {
+    padding-top: 50px;
+    background: url(../Images/fon2.jpg) no-repeat center center fixed;
+    background-size:cover;
+}
+
+/* Прозрачный фон для основного содержимого 
+.article {
+	back ground: rgba(255,255,255,0.88);
+	padding-top: 20px;
+	margin-bottom: 10px;
+}
+
+/* Стили для подвала страницы */
+footer {
+	
+	padding: 6em 15px 0 15px;
+}
+
+
+/*анимация в стрелочку, направленную вверх:*/
+.navbar-toggle {
+	border: none;
+	background: transparent !important;
+}
+
+	.navbar-toggle:hover {
+		background: transparent !important;
+	}
+
+	.navbar-toggle .icon-bar {
+		width: 22px;
+		-webkit-transition: all 0.2s;
+		transition: all 0.2s;
+	}
+
+	.navbar-toggle.collapsed .icon-bar:nth-of-type(1) {
+		transform: translate3d(0,0,0) rotate(0deg);
+		width: 22px;
+	}
+
+	.navbar-toggle.collapsed .icon-bar:nth-of-type(2) {
+		transform: translate3d(0,0,0) rotate(0deg);
+	}
+
+	.navbar-toggle.collapsed .icon-bar:nth-of-type(3) {
+		transform: translate3d(0,0,0) rotate(0deg);
+		width: 22px;
+	}
+
+	.navbar-toggle .icon-bar:nth-of-type(1) {
+		transform: translate3d(1px,0,0) rotate(-45deg);
+		transform-origin: center center;
+		width: 11px;
+	}
+
+	.navbar-toggle .icon-bar:nth-of-type(2) {
+		transform: rotate(-90deg);
+		transform-origin: center center;
+	}
+
+	.navbar-toggle .icon-bar:nth-of-type(3) {
+		transform: translate3d(0px,-14px,0) rotate(-135deg);
+		transform-origin: right top;
+		width: 11px;
+	}

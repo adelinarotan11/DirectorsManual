@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Func5";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";}
+
+
+
+<div>
+    @using (Ajax.BeginForm("Func5Partial", new AjaxOptions { UpdateTargetId = "results" }))
+    {<div class="panel">
+            <div class="panel-heading">
+                <h3>
+                    Найти, какие поставщики не поставляли заводу никаких деталей в заданную дату:
+                </h3>
+            </div>
+            <div class="panel-body">
+                <label>Введите дату: </label>
+                <input type="date" name="date"/>
+            </div>
+            <div class="panel-footer">
+                <input type="submit" value="Найти" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+    <table id="results" class="table table-sm table-dark"></table>
+
+</div>
+<script>
+jQuery.validator.addMethod("minDate", function (value, element) {
+    var now = new Date();
+    var myDate = new Date(value);
+    return this.optional(element) || myDate > now;
+
+    // else alert('Das passt nicht!' + mD +  '   ' + nowdate);
+
+});
+</script>

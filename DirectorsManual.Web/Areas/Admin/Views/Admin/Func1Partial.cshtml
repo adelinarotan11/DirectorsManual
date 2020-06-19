@@ -1,0 +1,37 @@
+﻿@model  IEnumerable<DirectorsManual.Web.Areas.Admin.Models.FunctionsModel>
+
+
+<div id="searchresults">
+    @if (TempData["message"] == null)
+    {
+        <table class="table table-sm table-dark">
+            <thead class="thead-dark">
+                <tr>
+
+                    <th>Name of customer</th>
+                    <th>Total Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdOfCurrentCustomer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SummProfit) грн.
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>}
+    else
+    {
+        <div class="alert alert-danger">@TempData["message"]</div>
+    }
+    
+</div>
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/bootstrap")

@@ -1,0 +1,24 @@
+﻿@using DirectorsManual.Web.Models
+@model ProductsListViewModel
+
+@{
+    ViewBag.Title = "Catalog of products";
+}
+
+<div class="visible-xs">
+    @Html.Action("Menu", "Nav", new { horizontalNav = true })
+</div>
+
+<div id="categories" class="col-sm-3 hidden-xs">
+    @Html.Action("Menu", "Nav")
+</div>
+
+<div class="col-xs-12 col-sm-9">
+    @foreach (var p in @Model.Products)
+    {
+        @Html.Partial("ProductSummary", p)
+    }
+    <div class="btn-group pull-right">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+    </div>
+</div>

@@ -1,0 +1,102 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – Admin Panel</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/adelina.css" rel="stylesheet" />
+    <script src="~/Content/forLayoutA.js"></script>
+    @Scripts.Render("~/scripts/jquery-3.3.1.min.js")
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+    <title></title>
+</head>
+
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+
+		<div class="container">
+            <div class="navbar-header">
+                <!-- Кнопка «Гамбургер» -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
+                    <span class=sr-only>Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Director's Manual", "Index", new { area = "", controller = "Home" }, new { @class = "navbar-brand" })
+
+               @* @Html.ActionLink("Director's Manual", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+			<div class="navbar-collapse collapse"  id="navbar-main">
+
+				<ul class="nav navbar-nav">
+					<li>@Html.ActionLink("Постановка задачи", "FormulationTask", new { area = "", controller="Home" })
+
+                    @*@Html.ActionLink("Постановка задачи", "FormulationTask", "Home")*@</li>
+					
+                    <li>@Html.ActionLink("Список товаров", "Index", "Admin")</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Functions <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li> @Html.ActionLink("Function 1", "Func1", "Admin")</li>
+							<li role="separator" class="divider"></li><!--Разделитель между элементами в списке -->
+							<li>@Html.ActionLink("Function 2", "Func2", "Admin")</li>
+							<li role="separator" class="divider"></li>
+							<li>@Html.ActionLink("Function 3", "Func3", "Admin")</li>
+							<li role="separator" class="divider"></li>
+							<li>@Html.ActionLink("Function 4", "Func4", "Admin")</li>
+							<li role="separator" class="divider"></li>
+							<li>@Html.ActionLink("Function 5", "Func5", "Admin")</li>
+						</ul>
+					</li>
+
+
+                    <li class="nav-item dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Procedures <span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li> @Html.ActionLink("Add_Contr_Products", "Rez1StopP", "Admin")</li>
+                            <li role="separator" class="divider"></li>
+                            <li> @Html.ActionLink("Add_Contr_Details", "Rez2StopP", "Admin")</li>
+                        </ul>
+                    </li>
+			    </ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container body-content">
+		@if (TempData["message"] != null)
+		{
+			<div class="alert alert-success">@TempData["message"]</div>
+		}
+		@RenderBody()
+		<hr />
+		<footer>
+			<p>&copy; @DateTime.Now.Year – приложение Director`s Manual</p>
+		</footer>
+	</div>
+
+
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	@RenderSection("scripts", required: false)
+</body>
+</html>
+<script type="text/javascript">
+	var inputs = $('input, textarea, select')
+		.not(':input[type=button], :input[type=submit], :input[type=reset]');
+	inputs.addClass('form-control');
+</script>

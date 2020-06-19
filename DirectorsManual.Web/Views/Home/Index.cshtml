@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    .splash {
+        /* Отступ для содержимого, помещенного в splash */
+        padding: 8em 0 2em;
+        /* Картинка, которая используются для splash */
+        background-image: url(../../Images/fon.jpg);
+        /* Масштабируем картинку с сохранением пропорций */
+        background-size: cover;
+        /* Запрещаем фоновому изображению прокручиваться, т.е. делаем его неподвижным */
+        background-attachment: fixed;
+        /* Цвет текста */
+        color: #fff;
+        /* Выравниваем текста внутри splash по центру */
+        text-align: center;
+    }
+</style>
+@section Splacs {
+<!-- Заставка -->
+<div class="splash">
+    <div class="container">
+        <!-- Текст, размещенный на заставке -->
+        <h1>Welcome!</h1>
+        <h2>Our company is called "StroyProekt"</h2>
+
+        <h4>
+            Our site sales the different products!
+            You can see them in the catalog.
+        </h4>
+    </div>
+</div>
+    }
+<br /> <br />
+<div class="jumbotron">
+    <img src="~/Images/2.png" width="1000" height="300">
+    <p class="lead">StroyProekt takes a leading place in the construction market of Moscow.</p>
+    <p class="btn btn-info ">
+        @Html.ActionLink("Learn more", "About")
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>General Information</h2>
+        <img src="~/Images/general.jpg" width="250" height="200">
+        <p>
+            StroyProekt has been successfully operating in the construction services market since 1997.
+            We have a large material and technical base that allows us to carry out significant amounts of work in Moscow and the region. All construction, reconstruction
+            and repair services are delivered on time and with the receipt of the desired result.
+        </p>
+
+        <p><a class="btn btn-info" href="#">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Who is in charge?</h2>
+        <img src="~/Images/2people.jpg" width="250" height="200">
+        <p>
+            The main direction of the company: the construction and reconstruction of office buildings and structures of any complexity, the overhaul of buildings,
+            the construction of cottages, the construction of houses, the construction of shops, the repair of offices, the construction of attics.
+        </p>
+        <p><a class="btn btn-info" href="#">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Work principles</h2>
+        <img src="~/Images/workprincip.jpg" width="250" height="200">
+        <p>
+            Our construction company uses the most advanced
+            technologies in construction and uses modern materials.
+        </p>
+        <p><a class="btn btn-info" href="#">Learn more &raquo;</a></p>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+DROP TABLE TAssemblyProduct;
+DROP TABLE TProduct;
+DROP TABLE TStockDetails;
+DROP TABLE TDetail;
+DROP TABLE TContract_detail;
+DROP TABLE TContract_product;
+DROP TABLE TCustomer;
+DROP TABLE TProvider;
+DROP TABLE TCompany;

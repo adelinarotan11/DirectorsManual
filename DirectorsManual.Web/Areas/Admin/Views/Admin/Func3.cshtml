@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Func3";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+    <div>
+        @using (Ajax.BeginForm("Func3Partial", new AjaxOptions { UpdateTargetId = "results" }))
+        {<div class="panel">
+                <div class="panel-heading">
+                    <h3>
+                        Какую прибыль мы получим, реализовав заданный договор на поставку,
+                        если прибыль равна разности суммарной стоимости договора на поставку изделий и суммарной стоимости деталей, входящих в изделия,
+                        включенные в этот договор:
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <label>ID договора на поставку товаров:</label>
+                    <input type="number" name="ID" />
+                </div>
+                <div class="panel-footer">
+                    <input type="submit" value="Найти" class="btn btn-primary" />
+                </div>
+            </div>
+        }
+        <table id="results" class="table table-sm table-dark"></table>
+
+    </div>
